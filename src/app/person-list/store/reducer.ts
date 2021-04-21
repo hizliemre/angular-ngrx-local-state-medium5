@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
-import { ActionReducer, createReducer, on } from "@ngrx/store";
+import { createReducer, on } from "@ngrx/store";
 import * as actions from "./actions";
 import { Person } from "./models";
 
@@ -111,15 +111,9 @@ const stateSlice = (
   return state.lists[action.identifier];
 };
 
-export const loading = (
-  state: AllPersonListsState,
-  props: { identifier: string }
-) => state.lists[props.identifier].loading;
+export const loading = (state: AllPersonListsState, props: { identifier: string }) => state.lists[props.identifier].loading;
 
-export const selectAll = (
-  state: AllPersonListsState,
-  props: { identifier: string }
-) => {
+export const selectAll = (state: AllPersonListsState, props: { identifier: string }) => {
   if (Boolean(state.lists[props.identifier]))
     return entityAdapter
       .getSelectors()

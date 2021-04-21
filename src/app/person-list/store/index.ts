@@ -3,5 +3,5 @@ import * as fromReducer from './reducer';
 
 const getFetureState = createFeatureSelector<fromReducer.PersonListState>(fromReducer.featureKey);
 
-export const selectLoading = createSelector(getFetureState, fromReducer.loading);
-export const selectAll = createSelector(getFetureState, fromReducer.selectAll);
+export const selectLoading = createSelector(getFetureState, (state, props) => fromReducer.loading(state, props));
+export const selectAll = createSelector(getFetureState, (state, props) => fromReducer.selectAll(state, props));
